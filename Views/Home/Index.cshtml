@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Login Bees";
+}
+
+    <div class="row">
+        <div class="col-lg-7" style="padding: 0; ">
+            <img src="~/images/login beer and brands.png" style=" width: 100%; height: 100%; ">
+        </div>
+        <div class="col-lg-5" style="padding: 0; ">
+            <div style="padding: 4%; ">
+                <img src="~/images/bee login.png" style="width: 15%; margin-top:20%;">
+                <h1><strong>Bienvenido</strong></h1>
+                <br>
+                <br>
+                <h5><strong>Inicia sesión para continuar</strong></h5>
+                <form id="frmAccss">
+                    <div class="input-group input-group-sm mb-3 ">
+                        <input type="text" name="usuario" id="usuario" class="form-control col-9" placeholder="USER">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="password" name="contrasena" id="contrasena" class="form-control col-9" placeholder="PASSWORD">
+                    </div>
+                    <input type="submit" class="bLogin" value="">
+                </form>
+                <div style="margin-top: 44%; position:absolute;">
+                    <p>
+                        <strong>Advertencia</strong>, el acceso a este sistema esta restringido<br>
+                        solo a personal autorizado de <strong>ABInBev</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(function () {
+
+        $('#frmAccss').submit(function (e) {
+            e.preventDefault();
+
+            url = "@Url.Content("~/Home/Entrar")"
+            parametros = $(this).serialize();
+
+            $.post(url, parametros, function (data) {
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/Cliente")";
+                } else {
+                    alert(data);
+                }
+            });
+        });
+    });
+</script>

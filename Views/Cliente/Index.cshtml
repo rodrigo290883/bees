@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Bees Clientes";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+    <div class="col-12">
+        <img src="~/images/bar sombra.png" width="100%" alt="Alternate Text" />
+        <table id="t_Clientes" class="table table-responsive table-striped">
+            <thead style="background-color: #FFDE00; color: black;">
+            <th>SAP ID</th>
+            <th>NOMBRE</th>
+            <th>ESTABLECIMIENTO</th>
+            <th>DRV</th>
+            <th>ESTADO</th>
+            <th>APP</th>
+            <th>REGISTRO</th>
+            <th>UTLIMO PEDIDO B2B</th>
+            <th>% ADOPCION MENS</th>
+            <th>DIA DE PEDIDO</th>
+            <th>DIA DE LLAMADA</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    $(function () {
+
+        debugger;
+
+            url = "@Url.Content("~/Cliente/GetClientes")"
+
+            $.post(url, {}, function (data) {
+                var num = data.length;
+                var html = "";
+                $("#t_Clientes tbody").html("");
+                for (var i = 0; i < num; i++) {
+                    var dato = data[i];
+                    html = "<tr alt='" + dato.idsap + "'><td><a href='" + '@Url.Action( "GetInfoCliente", "Cliente")?id='+  dato.idsap +'"> '+ dato.idsap + "</a></td><td>" + dato.nombre + "</td><td>" + dato.establecimiento + "</td><td>" + dato.drv + "</td><td>" + dato.estado + "</td><td>" + dato.app + "</td><td>" + dato.registro + "</td><td>" + dato.ultimo_pedido + "</td><td>" + dato.adopcion_mens + "</td><td>" + dato.dia_pedido + "</td><td>" + dato.dia_llamada + "</td>";
+
+                    $("#t_Clientes tbody").append(html);
+                        }
+                    });
+
+
+/*        $("#t_Clientes tbody").on("click", "tr", function () {
+            folio = $(this).attr('alt');
+
+
+
+        });*/
+
+
+    });
+
+    </script>
+
+

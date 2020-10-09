@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bees Usuairos</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    a:link {
+        text-decoration: none;
+        color:black;
+    }
+    .input-group-text {
+        background-color:white;
+    }
+
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/bee upperbar.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <b>Mis Clientes</b>
+            </a>
+            <form class="form-inline my-2 my-lg-0" style="border-style:solid; border-width:1px; border-radius:4px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <img src="~/images/search.png" alt="buscar" style="width:25px" />
+                    </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" style="border-style:none; box-shadow:0 0 black">
+            </form>
+
+            <b>Abraham Ramos</b>
+
+            <a class="navbar-brand" id="flic" href="#">
+                <img src="~/images/Digital Bees-15.png" style="z-index: 1; width:40%;" />
+                <h3 style="z-index:20; color: white; margin-left:0px; margin-top:-35px;"><b>AR</b></h3>
+            </a>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
